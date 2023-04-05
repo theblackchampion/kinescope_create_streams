@@ -9,12 +9,12 @@ from umschool_api import insert_video_link
 
 url = "https://api.kinescope.io/v2/live/events"
 url_poster = "https://uploader.kinescope.io/poster"
-gc = gspread.service_account(filename="cedar-context-373016-19a269322637.json")
+gc = gspread.service_account(filename="path_to_service_account")
 
-sh = gc.open_by_key("1VJnSXjIGxFY0WaOZZjjy8060szJ6mBE0l1YELTK1byI")
+sh = gc.open_by_key("<key>")
 worksheet = sh.sheet1
 
-headers = {"Authorization": "Bearer 70e1b60d-569b-432b-b133-dae869599023"}
+headers = {"Authorization": "Bearer <key>"}
 def convert_month(date_lesson):
     month_dict = {"1": "ЯНВАРЬ", "2": "ФЕВРАЛЬ", "3": "МАРТ", "4": "АПРЕЛЬ", "5": "МАЙ", "6": "ИЮНЬ", "7": "ИЮЛЬ",
                   "8": "АВГУСТ", "9": "СЕНТЯБРЬ", "10": "ОКТЯБРЬ", "11": "НОЯБРЬ", "12": "ДЕКАБРЬ"}
@@ -49,7 +49,7 @@ def convert_time(date_lesson, time_lesson): #2023-12-19T00:05:41.634922Z
 def upload_poster(id_stream, teacher):
     payload = "<file contents here>"
     headers = {
-        "Authorization": "Bearer 70e1b60d-569b-432b-b133-dae869599023",
+        "Authorization": "Bearer <key>",
         'X-Video-ID': id_stream,
         'X-Poster-URL': link_posters[teacher],
         'Content-Type': 'text/plain'
@@ -60,7 +60,7 @@ def upload_poster(id_stream, teacher):
 #def move_stream(id_stream, teacher):
 #    url_move_stream = f"https://api.kinescope.io/v2/live/events/{id_stream}/move"
 #    payload = {"parent_id": id_folders_live[teacher]}
-#    headers = {"Authorization": "Bearer 70e1b60d-569b-432b-b133-dae869599023"}
+#    headers = {"Authorization": "Bearer <key>"}
 #    response = requests.put(url_move_stream, headers=headers, data=json.dumps(payload)).json()
 #    return print(response)
 
