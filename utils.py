@@ -1,2 +1,2 @@
-umsch_login = "kkamishev@umschool.ru"
-umsch_password = "kosty1234"
+umsch_login = ""
+umsch_password = ""
